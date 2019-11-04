@@ -6,7 +6,10 @@ const db = require("./accountsDb");
 router.use(express.json());
 
 router.get("/", (req, res) => {
+  const { limit, sortby, sortdir } = req.query;
   db.get()
+    .orderBy(sortby || "id", sortdir || "asc")
+    .limit(limit || 5)
     .then(account => {
       res.status(200).json(account);
     })
