@@ -9,7 +9,7 @@ function getById(id) {
 }
 
 function insert(account) {
-  return db("accounts").insert(account);
+  return db("accounts").insert(account);//there is a question to ask here, do not forget to compare against previous helper function
 }
 
 function update(id, changes) {
